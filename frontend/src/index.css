@@ -1,4 +1,384 @@
+/* =============================
+    Global Theme & Base
+    ============================== */
+:root {
+  --bg: var(--color-bg-dark);
+  --card: #0f1720;
+  --muted: var(--color-text-light);
+  --accent: var(--color-accent);
+  --accent-2: #60a5fa;
+  --surface-elev: rgba(255, 255, 255, 0.06);
+  --text: var(--color-text-white);
+  --success: var(--color-success);
+  --danger: #ff6b6b;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
 body {
-  margin: 0;
-  font-family: sans-serif;
+  background:
+    /* Dark overlay for readability */
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+    /* Your background image */
+    url('E:\frontendfinal\frontend\src\photu.jpg'),
+    /* Your original gradients as fallback */
+    radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,0.08), transparent 60%),
+    radial-gradient(800px 400px at 120% 10%, rgba(94,234,212,0.07), transparent 50%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg) 100%);
+  
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 1.15rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+
+  /*changes to be done */
+  body {
+  background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+    url("E:\frontendfinal\frontend\src\photu.jpg"),
+    radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,0.08), transparent 60%),
+    linear-gradient(180deg, #0f1720 0%, #0f1720 100%);
+  
+  background-size: cover, cover, auto, auto;
+  background-position: center, center top, center, center;
+  background-repeat: no-repeat;
+
+  animation: moveBg 5s linear infinite;
+}
+
+@keyframes moveBg {
+  0%   { background-position: center, center top, center, center; }
+  50%  { background-position: center, center bottom, center, center; }
+  100% { background-position: center, center top, center, center; }
+}
+
+}
+
+@keyframes zoomBg {
+  from { background-size: 100%; }
+  to   { background-size: 150%; }
+}
+
+
+
+
+/* =============================
+    Container
+    ============================== */
+.container-app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/* =============================
+    Typography
+    ============================== */
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.25rem + 3vw, 2.4rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.15rem + 2vw, 1.5rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Base body text */
+body, p, span, li {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Muted text */
+.small-muted {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.6;
+  font-family: 'Inter', system-ui, sans-serif;
+  user-select: text;
+}
+
+/* =============================
+    Cards
+    ============================== */
+.card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  color: var(--color-text-white);
+  animation: fadeInUp 0.5s ease both;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  transform: translateY(-2px);
+}
+
+/* Card header row helpers */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-white);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* =============================
+    Buttons
+    ============================== */
+.btn-primary {
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--accent-2), #3b82f6);
+  border: none;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+  color: var(--color-bg-dark);
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  transition: 
+     background-color 0.2s ease,
+     transform 0.18s ease,
+     box-shadow 0.18s ease,
+     opacity 0.2s ease;
+  user-select: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.5);
+  transform: translateY(-1px) scale(1.05);
+  outline: none;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  background: var(--accent-2);
+  color: var(--color-bg-dark);
+}
+
+button, .fetch-profile {
+  font-size: 1.09rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  background: var(--accent-2, #60a5fa);
+  color: var(--color-bg-dark, #182232);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(59,130,246,0.18);
+  transition: 
+     background 0.19s,
+     box-shadow 0.19s,
+     color 0.19s;
+}
+
+button:hover, .fetch-profile:hover,
+button:focus, .fetch-profile:focus {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(59,130,246,0.24);
+  outline: none;
+}
+
+/* =============================
+    Inputs (search form)
+    ============================== */
+.home-form {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+  max-width: 640px;
+  padding: 32px 24px;
+  background: rgba(20, 28, 40, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  align-items: center;
+  margin-top: 15px;
+}
+
+.home-input {
+  min-width: 18rem;
+  flex: 1 1 320px;
+  border-radius: 999px;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #182232;
+  color: var(--text);
+  border: 2px solid #28344a;
+  outline: none;
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.18s;
+  padding-left: 10px;
+  margin-right: 5px;
+  justify-content: center;
+}
+
+.home-input::placeholder {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.home-input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.13), 0 12px 36px rgba(0,0,0,0.35);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* =============================
+    Hero / Dashboard
+    ============================== */
+.dashboard {
+  text-align: center;
+  margin-top: 2rem;
+}
+.dashboard__title {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: white;
+}
+.dashboard__subtitle {
+  color: var(--muted);
+  max-width: 720px;
+  margin: 0 auto 1rem;
+}
+
+/* =============================
+    Charts
+    ============================== */
+.chart-container {
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  animation: riseIn 0.6s ease both;
+}
+
+.language-chart-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--accent-2);
+}
+
+/* Recharts tooltips */
+.recharts-default-tooltip {
+  background: var(--card) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45) !important;
+  color: var(--text) !important;
+}
+
+/* Recharts axis ticks */
+.recharts-cartesian-axis-tick text {
+  fill: var(--muted) !important;
+  font-size: 12px;
+}
+
+/* =============================
+    Layout helpers
+    ============================== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 992px) {
+  .grid-2 {
+     grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stack-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =============================
+    Animations
+    ============================== */
+@keyframes fadeInUp {
+  from {
+     opacity: 0;
+     transform: translateY(10px);
+  }
+  to {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}
+
+@keyframes riseIn {
+  from {
+     opacity: 0;
+     transform: translateY(14px) scale(0.98);
+  }
+  to {
+     opacity: 1;
+     transform: translateY(0) scale(1);
+  }
 }

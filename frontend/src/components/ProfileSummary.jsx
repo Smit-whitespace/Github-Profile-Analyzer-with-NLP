@@ -1,13 +1,21 @@
-import React from 'react'
+import React from "react";
 
-function ProfileSummary({ username }) {
+function ProfileSummary({ summary }) {
+  if (!summary) {
+    return <p className="muted">Loading user summary...</p>;
+  }
+
   return (
-    <div className="summary-card">
-      <h3>Basic Info</h3>
-      <p>Username: {username}</p>
-      <p>👨‍💻 Profile summary and stats will go here...</p>
+    <div className="card">
+      <h2 className="card-title">👤 GitHub Profile Summary</h2>
+      <div className="space-y">
+        <p><strong>Username:</strong> {summary.username}</p>
+        <p><strong>Public Repositories:</strong> {summary.public_repos}</p>
+        <p><strong>Followers:</strong> {summary.followers}</p>
+        <p><strong>Following:</strong> {summary.following}</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ProfileSummary
+export default ProfileSummary;
