@@ -1,0 +1,46 @@
+/* variables.css */
+
+/* 🎨 Color Palette */
+:root {
+  /* Primary Brand Colors (GitHub-inspired) */
+  --color-primary: #24292e;       /* GitHub dark gray */
+  --color-primary-light: #2f363d;
+  --color-accent: #0366d6;        /* GitHub blue */
+  --color-accent-hover: #005cc5;
+  --color-success: #28a745;
+  --color-danger: #d73a49;
+  --color-warning: #ffd33d;
+
+  /* Backgrounds */
+  --color-bg-light: #f6f8fa;      /* Light gray page background */
+  --color-bg-white: #ffffff;      /* White cards */
+  --color-bg-dark: #1b1f23;       /* GitHub dark mode base */
+
+  /* Text Colors */
+  --color-text-dark: #24292e;
+  --color-text-light: #6a737d;
+  --color-text-white: #ffffff;
+
+  /* Borders */
+  --color-border-light: #e1e4e8;
+  --color-border-dark: #444c56;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+  /* Radius */
+  --radius-small: 0.25rem;
+  --radius-medium: 0.5rem;
+  --radius-large: 1rem;
+
+  /* Font Sizes */
+  --font-small: 0.875rem;
+  --font-normal: 1rem;
+  --font-large: 1.25rem;
+  --font-xlarge: 1.5rem;
+
+  /* Animations */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+}
